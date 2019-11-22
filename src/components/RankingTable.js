@@ -2,7 +2,7 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import { paper, shadow, black } from 'constants/styles/colors'
 import fakeData from 'constants/fakeData'
-import BoardRow from 'components/BoardRow'
+import RankingTableRow from 'components/RankingTableRow'
 
 const styles = {
 	board: {
@@ -26,7 +26,7 @@ const RenderRows = ({ playerData }) => (
 		(player) => {
 			const { playerName, playerElo } = player
 			return (
-				<BoardRow playerName={playerName} playerElo={playerElo} />
+				<RankingTableRow playerName={playerName} playerElo={playerElo} />
 			)
 		},
 	)
@@ -34,7 +34,7 @@ const RenderRows = ({ playerData }) => (
 
 const Board = ({ classes }) => (
 	<div className={classes.board}>
-		<BoardRow playerName="player" playerElo="elo" className={classes.headerRow} />
+		<RankingTableRow playerName="player" playerElo="elo" className={classes.headerRow} />
 		<RenderRows playerData={fakeData} />
 	</div>
 )

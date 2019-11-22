@@ -3,7 +3,8 @@ import injectSheet from 'react-jss'
 
 import { MD_MIN_STRING } from 'constants/styles/breakpoints'
 
-import Board from 'components/Board'
+import RankingTable from 'components/RankingTable'
+import H1 from 'components/H1'
 
 const wrapperStyles = {
 	display: 'flex',
@@ -36,11 +37,9 @@ const styles = {
 
 const Challenge = ({ classes }) => (
 	<div className={classes.boardPageContainer}>
-		<h1 className={classes.header}>
-			Quadio Smash
-		</h1>
+		<H1 text="Quadio Smash" className={classes.header} />
 		<div className={classes.boardAndForm}>
-			<Board />
+			<RankingTable />
 			<div>matchForm</div>
 		</div>
 	</div>
