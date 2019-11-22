@@ -1,2 +1,3 @@
 export const paper = '#ededed'
-export const shadow = '#7d7d7d'
+export const shadow = '#c9c9c9'
+export const black = '#000'

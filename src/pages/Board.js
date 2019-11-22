@@ -15,7 +15,7 @@ const styles = {
 	[MD_MIN_STRING]: {
 		boardPageContainer: {
 			flexDirection: 'row',
-			justifyContent: 'space-between',
+			justifyContent: 'space-around',
 			height: '100%',
 		},
 	},
