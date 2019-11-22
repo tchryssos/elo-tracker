@@ -14,6 +14,11 @@ const styles = {
 		boxShadow: [[1, 1, 2, 2, shadow]],
 		border: [[1, 'solid', black]],
 	},
+	headerRow: {
+		textTransform: 'uppercase',
+		fontWeight: 'bold',
+		textAlign: 'center',
+	},
 }
 
 const RenderRows = ({ playerData }) => (
@@ -29,6 +34,7 @@ const RenderRows = ({ playerData }) => (
 
 const Board = ({ classes }) => (
 	<div className={classes.board}>
+		<BoardRow playerName="Player" playerElo="elo" className={classes.headerRow} />
 		<RenderRows playerData={fakeData} />
 	</div>
 )

@@ -1,5 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import clsx from 'clsx'
 
 import { black } from 'constants/styles/colors'
 
@@ -20,8 +21,8 @@ const styles = {
 	},
 }
 
-const BoardRow = ({ playerName, playerElo, classes }) => (
-	<div className={classes.row}>
+const BoardRow = ({ playerName, playerElo, className, classes }) => (
+	<div className={clsx(classes.row, className)}>
 		<div className={classes.playerNameContainer}>
 			{playerName}
 		</div>
