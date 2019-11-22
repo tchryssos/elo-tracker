@@ -1,7 +1,7 @@
 {
-  "name": "react_template",
+  "name": "elo_tracker",
   "version": "2.0.0",
-  "description": "A website by Troy Chryssos",
+  "description": "A website for tracking game elo among friends",
   "main": "app.js",
   "repository": "",
   "author": "<troychryssos@gmail.com>",

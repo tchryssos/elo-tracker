@@ -34,7 +34,7 @@ const RenderRows = ({ playerData }) => (
 
 const Board = ({ classes }) => (
 	<div className={classes.board}>
-		<BoardRow playerName="Player" playerElo="elo" className={classes.headerRow} />
+		<BoardRow playerName="player" playerElo="elo" className={classes.headerRow} />
 		<RenderRows playerData={fakeData} />
 	</div>
 )

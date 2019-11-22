@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom'
-import Board from 'pages/Board'
+import Challenge from 'pages/Challenge'
 
 const App = ({ location }) => {
 	// Create global effects or state here
@@ -10,7 +10,7 @@ const App = ({ location }) => {
 	return (
 		<>
 			<Switch>
-				<Route path="/" exact component={Board} />
+				<Route path="/" exact component={Challenge} />
 			</Switch>
 			{/* NavBar?? */}
 		</>

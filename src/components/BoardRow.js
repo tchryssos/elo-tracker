@@ -9,6 +9,9 @@ const styles = {
 		display: 'flex',
 		borderBottom: [[1, 'solid', black]],
 		width: '100%',
+		'&:last-child': {
+			borderBottom: 'none',
+		},
 	},
 	playerNameContainer: {
 		width: '70%',
