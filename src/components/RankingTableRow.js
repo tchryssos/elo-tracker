@@ -14,8 +14,9 @@ const styles = {
 		},
 	},
 	rankBox: {
-		marginLeft: 8,
-		width: '10%',
+		display: 'flex',
+		justifyContent: 'center',
+		width: '12%',
 		borderRight: [[1, 'solid', black]],
 	},
 	playerNameContainer: {
@@ -24,7 +25,7 @@ const styles = {
 		borderRight: [[1, 'solid', black]],
 	},
 	playerEloContainer: {
-		width: '30%',
+		width: '28%',
 		marginLeft: 8,
 	},
 }

@@ -44,9 +44,7 @@ const Challenge = ({ classes }) => {
 		const playerUrl = `${API_URL}/${PLAYER_LIST}`
 		const res = await fetch(playerUrl)
 		const parsedBody = await res.json()
-		if (parsedBody.length) {
-			setPlayers(parsedBody)
-		}
+		setPlayers(parsedBody)
 	}
 
 	useEffect(() => {
@@ -58,7 +56,7 @@ const Challenge = ({ classes }) => {
 			<H1 text="Quadio Smash" className={classes.header} />
 			<div className={classes.boardAndForm}>
 				<RankingTable players={players} />
-				<MatchForm />
+				<MatchForm players={players} getPlayers={getPlayers} />
 			</div>
 		</div>
 	)
