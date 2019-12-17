@@ -13,8 +13,13 @@ const styles = {
 			borderBottom: 'none',
 		},
 	},
+	rankBox: {
+		marginLeft: 8,
+		width: '10%',
+		borderRight: [[1, 'solid', black]],
+	},
 	playerNameContainer: {
-		width: '70%',
+		width: '60%',
 		marginLeft: 8,
 		borderRight: [[1, 'solid', black]],
 	},
@@ -24,13 +29,16 @@ const styles = {
 	},
 }
 
-const BoardRow = ({ playerName, playerElo, className, classes }) => (
+const BoardRow = ({ name, rank, elo, className, classes }) => (
 	<div className={clsx(classes.row, className)}>
+		<div className={classes.rankBox}>
+			{rank}
+		</div>
 		<div className={classes.playerNameContainer}>
-			{playerName}
+			{name}
 		</div>
 		<div className={classes.playerEloContainer}>
-			{playerElo}
+			{elo}
 		</div>
 	</div>
 )
