@@ -10,6 +10,7 @@ import RankingTable from 'components/RankingTable'
 import H1 from 'components/H1'
 import MatchForm from 'components/MatchForm'
 import NewPlayerForm from 'components/NewPlayerForm'
+import Falcon from 'static/falcon.png'
 
 const wrapperStyles = {
 	display: 'flex',
@@ -18,12 +19,23 @@ const wrapperStyles = {
 }
 
 const styles = {
+	background: {
+		background: `no-repeat center/200% url(${Falcon})`,
+		position: 'absolute',
+		top: 0,
+		left: 0,
+		width: '100%',
+		height: '100%',
+		zIndex: -1,
+		opacity: 0.2,
+	},
 	boardPageContainer: {
 		...wrapperStyles,
 		height: '100%',
 	},
 	boardAndForm: {
 		...wrapperStyles,
+		alignItems: 'center',
 	},
 	header: {
 		width: '100%',
@@ -42,6 +54,7 @@ const styles = {
 			flexDirection: 'row',
 			justifyContent: 'space-evenly',
 			height: '100%',
+			alignItems: 'flex-start',
 		},
 	},
 }
@@ -60,16 +73,19 @@ const Challenge = ({ classes }) => {
 	}, [])
 
 	return (
-		<div className={classes.boardPageContainer}>
-			<H1 className={classes.header}>QUADIO SMASH</H1>
-			<div className={classes.boardAndForm}>
-				<RankingTable players={players} />
-				<div className={classes.formStack}>
-					<MatchForm players={players} getPlayers={getPlayers} />
-					<NewPlayerForm getPlayers={getPlayers} />
+		<>
+			<div className={classes.background} />
+			<div className={classes.boardPageContainer}>
+				<H1 className={classes.header}>QUADIO SMASH</H1>
+				<div className={classes.boardAndForm}>
+					<RankingTable players={players} />
+					<div className={classes.formStack}>
+						<MatchForm players={players} getPlayers={getPlayers} />
+						<NewPlayerForm getPlayers={getPlayers} />
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 

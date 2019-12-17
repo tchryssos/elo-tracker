@@ -1,6 +1,6 @@
-export const MD_MIN_VALUE = 768
-export const LG_MIN_VALUE = 992
-export const XL_MIN_VALUE = 1200
+export const MD_MIN_VALUE = 960
+export const LG_MIN_VALUE = 1280
+export const XL_MIN_VALUE = 1920
 
 const mediaString = '@media'
 export const SM_MAX_STRING = `${mediaString} (max-width: ${MD_MIN_VALUE - 1}px)`
