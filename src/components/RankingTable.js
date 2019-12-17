@@ -13,6 +13,7 @@ const styles = {
 		backgroundColor: paper,
 		boxShadow: [[1, 1, 2, 2, shadow]],
 		border: [[1, 'solid', black]],
+		height: 'fit-content',
 	},
 	headerRow: {
 		textTransform: 'uppercase',
