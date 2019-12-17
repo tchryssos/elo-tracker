@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
+import axios from 'axios'
 
 import { API_URL, UPDATE_ELO } from 'constants/api'
 import { paper, shadow, black } from 'constants/styles/colors'
@@ -22,7 +23,7 @@ const styles = {
 	},
 }
 
-const MatchForm = ({ players, classes }) => {
+const MatchForm = ({ players, getPlayers, classes }) => {
 	const [formState, setFormState] = useState({
 		winner: '',
 		loser: '',
@@ -39,11 +40,8 @@ const MatchForm = ({ players, classes }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault()
 		const updateUrl = `${API_URL}/${UPDATE_ELO}`
-		const res = await fetch(updateUrl, {
-			method: 'POST',
-			body: JSON.stringify(formState),
-		})
-		console.log(res)
+		await axios.post(updateUrl, formState)
+		getPlayers()
 	}
 
 	return (
@@ -62,6 +60,7 @@ const MatchForm = ({ players, classes }) => {
 						players={players}
 						onChange={onChange}
 					/>
+					<input type="submit" className={classes.submit} />
 				</div>
 			</form>
 		</div>

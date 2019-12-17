@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import injectSheet from 'react-jss'
+import axios from 'axios'
 
 import { MD_MIN_STRING } from 'constants/styles/breakpoints'
 import { API_URL, PLAYER_LIST } from 'constants/api'
@@ -42,9 +43,8 @@ const Challenge = ({ classes }) => {
 
 	const getPlayers = async () => {
 		const playerUrl = `${API_URL}/${PLAYER_LIST}`
-		const res = await fetch(playerUrl)
-		const parsedBody = await res.json()
-		setPlayers(parsedBody)
+		const res = await axios.get(playerUrl)
+		setPlayers(res.data)
 	}
 
 	useEffect(() => {
