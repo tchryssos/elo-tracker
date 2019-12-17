@@ -14,19 +14,21 @@ const styles = {
 		},
 	},
 	rankBox: {
-		display: 'flex',
-		justifyContent: 'center',
-		width: '12%',
+		padding: 4,
+		textAlign: 'center',
+		width: '15%',
 		borderRight: [[1, 'solid', black]],
 	},
 	playerNameContainer: {
+		padding: 4,
+		paddingLeft: 8,
 		width: '60%',
-		marginLeft: 8,
 		borderRight: [[1, 'solid', black]],
 	},
 	playerEloContainer: {
-		width: '28%',
-		marginLeft: 8,
+		padding: 4,
+		paddingLeft: 8,
+		width: '25%',
 	},
 }
 

@@ -29,7 +29,7 @@ const styles = {
 		width: '100%',
 		textAlign: 'center',
 		textTransform: 'uppercase',
-		marginBottom: 16,
+		margin: [[16, 0]],
 	},
 	formStack: {
 		display: 'flex',
@@ -40,7 +40,7 @@ const styles = {
 	[MD_MIN_STRING]: {
 		boardAndForm: {
 			flexDirection: 'row',
-			justifyContent: 'space-around',
+			justifyContent: 'space-evenly',
 			height: '100%',
 		},
 	},
