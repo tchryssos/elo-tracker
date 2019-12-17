@@ -5,11 +5,13 @@ import { API_URL, CREATE } from 'constants/api'
 
 import Form from 'components/Form'
 
+const freshForm = {
+	name: '',
+}
+
 
 const NewPlayerForm = ({ getPlayers }) => {
-	const [formState, setFormState] = useState({
-		name: '',
-	})
+	const [formState, setFormState] = useState(freshForm)
 
 	const onSubmit = async (e) => {
 		e.preventDefault()
@@ -17,6 +19,7 @@ const NewPlayerForm = ({ getPlayers }) => {
 		if (formState.name) {
 			await axios.post(createUrl, formState)
 			getPlayers()
+			setFormState(freshForm)
 		}
 	}
 

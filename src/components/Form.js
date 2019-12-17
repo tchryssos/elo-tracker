@@ -22,6 +22,12 @@ const styles = {
 	titleWrapper: {
 		textAlign: 'center',
 	},
+	submit: {
+		maxWidth: '33%',
+		width: '100%',
+		marginTop: 16,
+		alignSelf: 'flex-end',
+	},
 }
 
 const Form = ({ onSubmit, children, title, classes }) => (
