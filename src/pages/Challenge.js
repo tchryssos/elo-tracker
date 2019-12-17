@@ -4,10 +4,12 @@ import axios from 'axios'
 
 import { MD_MIN_STRING } from 'constants/styles/breakpoints'
 import { API_URL, PLAYER_LIST } from 'constants/api'
+import { contentMaxWidth } from 'constants/styles/content'
 
 import RankingTable from 'components/RankingTable'
 import H1 from 'components/H1'
 import MatchForm from 'components/MatchForm'
+import NewPlayerForm from 'components/NewPlayerForm'
 
 const wrapperStyles = {
 	display: 'flex',
@@ -28,6 +30,12 @@ const styles = {
 		textAlign: 'center',
 		textTransform: 'uppercase',
 		marginBottom: 16,
+	},
+	formStack: {
+		display: 'flex',
+		flexDirection: 'column',
+		width: '100%',
+		maxWidth: contentMaxWidth,
 	},
 	[MD_MIN_STRING]: {
 		boardAndForm: {
@@ -53,10 +61,13 @@ const Challenge = ({ classes }) => {
 
 	return (
 		<div className={classes.boardPageContainer}>
-			<H1 text="Quadio Smash" className={classes.header} />
+			<H1 className={classes.header}>QUADIO SMASH</H1>
 			<div className={classes.boardAndForm}>
 				<RankingTable players={players} />
-				<MatchForm players={players} getPlayers={getPlayers} />
+				<div className={classes.formStack}>
+					<MatchForm players={players} getPlayers={getPlayers} />
+					<NewPlayerForm getPlayers={getPlayers} />
+				</div>
 			</div>
 		</div>
 	)

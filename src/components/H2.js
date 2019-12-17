@@ -6,19 +6,19 @@ import { MD_MIN_STRING } from 'constants/styles/breakpoints'
 
 const styles = {
 	header: {
-		fontSize: 24,
+		fontSize: 18,
 	},
 	[MD_MIN_STRING]: {
 		header: {
-			fontSize: 36,
+			fontSize: 24,
 		},
 	},
 }
 
 const H1 = ({ children, className, classes }) => (
-	<h1 className={(clsx(classes.header, className))}>
+	<h2 className={(clsx(classes.header, className))}>
 		{children}
-	</h1>
+	</h2>
 )
 
 export default injectSheet(styles)(H1)
