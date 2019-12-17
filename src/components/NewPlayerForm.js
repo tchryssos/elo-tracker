@@ -14,8 +14,10 @@ const NewPlayerForm = ({ getPlayers }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault()
 		const createUrl = `${API_URL}/${CREATE}`
-		await axios.post(createUrl, formState)
-		getPlayers()
+		if (formState.name) {
+			await axios.post(createUrl, formState)
+			getPlayers()
+		}
 	}
 
 	const onChange = (e) => {
@@ -29,7 +31,13 @@ const NewPlayerForm = ({ getPlayers }) => {
 	return (
 		<Form title="New Player" onSubmit={onSubmit}>
 			<p>Name:</p>
-			<input type="text" name="name" onChange={onChange} />
+			<input
+				type="text"
+				name="name"
+				onChange={onChange}
+				value={formState.name}
+				required
+			/>
 		</Form>
 	)
 }

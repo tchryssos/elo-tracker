@@ -9,8 +9,8 @@ import Form from 'components/Form'
 
 const MatchForm = ({ players, getPlayers }) => {
 	const [formState, setFormState] = useState({
-		winner: '',
-		loser: '',
+		winner: undefined,
+		loser: undefined,
 	})
 
 	const onChange = (e) => {
@@ -24,8 +24,10 @@ const MatchForm = ({ players, getPlayers }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault()
 		const updateUrl = `${API_URL}/${UPDATE_ELO}`
-		await axios.post(updateUrl, formState)
-		getPlayers()
+		if (formState.winner && formState.loser) {
+			await axios.post(updateUrl, formState)
+			getPlayers()
+		}
 	}
 
 	return (
