@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import injectSheet from 'react-jss'
 import axios from 'axios'
 
 
@@ -6,8 +7,16 @@ import { API_URL, UPDATE_ELO } from 'constants/api'
 
 import PlayerSelect from 'components/PlayerSelect'
 import Form from 'components/Form'
+import { robotoBold } from 'constants/styles/fonts'
 
-const MatchForm = ({ players, getPlayers }) => {
+const styles = {
+	formTitle: {
+		textTransform: 'uppercase',
+		...robotoBold,
+		marginBottom: 4,
+	},
+}
+const MatchForm = ({ classes, players, getPlayers }) => {
 	const [formState, setFormState] = useState({
 		winner: undefined,
 		loser: undefined,
@@ -31,14 +40,14 @@ const MatchForm = ({ players, getPlayers }) => {
 	}
 
 	return (
-		<Form onSubmit={onSubmit} title="Match Form">
-			<p>Winner:</p>
+		<Form onSubmit={onSubmit} title="Log a Match">
+			<p className={classes.formTitle} >Winner</p>
 			<PlayerSelect
 				fieldName="winner"
 				players={players}
 				onChange={onChange}
 			/>
-			<p>Loser:</p>
+			<p className={classes.formTitle}>Loser</p>
 			<PlayerSelect
 				fieldName="loser"
 				players={players}
@@ -48,4 +57,4 @@ const MatchForm = ({ players, getPlayers }) => {
 	)
 }
 
-export default MatchForm
+export default injectSheet(styles)(MatchForm)

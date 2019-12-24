@@ -3,14 +3,15 @@ import injectSheet from 'react-jss'
 
 import H2 from 'components/H2'
 
-import { paper, shadow } from 'constants/styles/colors'
+import { black, yellow } from 'constants/styles/colors'
+import { robotoBold } from 'constants/styles/fonts'
 
 const styles = {
 	formWrapper: {
-		backgroundColor: paper,
-		boxShadow: [[1, 1, 2, 2, shadow]],
+		backgroundColor: yellow,
+		border: `2px solid ${black}`,
 		height: 'fit-content',
-		padding: 16,
+		padding: 32,
 		width: '100%',
 		marginBottom: 24,
 	},
@@ -26,7 +27,17 @@ const styles = {
 		maxWidth: '33%',
 		width: '100%',
 		marginTop: 16,
-		alignSelf: 'flex-end',
+		alignSelf: 'center',
+		border: `2px solid ${black}`,
+		backgroundColor: yellow,
+		...robotoBold,
+		textTransform: 'uppercase',
+		fontSize: 16,
+		cursor: 'pointer',
+		'&:hover': {
+			backgroundColor: black,
+			color: yellow,
+		},
 	},
 }
 

@@ -1,8 +1,16 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 
-const styles = {
+import { black } from 'constants/styles/colors'
 
+const styles = {
+	playerSelect: {
+		marginBottom: 15,
+		border: `2px solid ${black}`,
+		borderRadius: 0,
+		fontSize: 12,
+		padding: 8,
+	},
 }
 
 const PlayerOption = ({ player, classes }) => (
@@ -23,7 +31,7 @@ const PlayerSelect = ({ players, fieldName, onChange, classes }) => {
 			className={classes.playerSelect}
 		>
 			<option disabled selected value>
-				-Choose a player-
+				Choose a player
 			</option>
 			{sortedPlayers.map(
 				player => <PlayerOption player={player} classes={classes} />,
