@@ -45,9 +45,7 @@ const RenderRows = ({ players, classes }) => (
 			return (
 				<RankingTableRow
 					className={clsx(
-						{
-							[classes.podiumRow]: rank <= 3,
-						},
+						{ [classes.podiumRow]: rank <= 3 },
 					)}
 					name={name}
 					rank={rank}

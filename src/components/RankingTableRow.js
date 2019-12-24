@@ -42,18 +42,14 @@ const BoardRow = ({ name, rank, elo, className, classes }) => (
 			{rank}
 		</div>
 		<div className={clsx(
-			{
-				[classes.podiumBorder]: rank <= 3,
-			},
+			{ [classes.podiumBorder]: rank <= 3 },
 			classes.playerNameContainer,
 		)}
 		>
 			{name}
 		</div>
 		<div className={clsx(
-			{
-				[classes.podiumBorder]: rank <= 3,
-			},
+			{ [classes.podiumBorder]: rank <= 3 },
 			classes.playerEloContainer,
 		)}
 		>
