@@ -21,6 +21,7 @@ const styles = {
 		textAlign: 'left',
 		'& div': {
 			border: 0,
+			paddingTop: 0,
 		},
 	},
 	podiumRow: {
@@ -57,6 +58,19 @@ const RenderRows = ({ players, classes }) => (
 	)
 )
 
+const Rows = ({ players, classes }) => {
+	if (players && players.length) {
+		return (
+			<>
+				<RenderRows players={players.slice(0, 3)} classes={classes} />
+				<p className={classes.starDivider}>***</p>
+				<RenderRows players={players.slice(3)} classes={classes} />
+			</>
+		)
+	}
+	return null
+}
+
 const Board = ({ players, classes }) => (
 	<div className={classes.board}>
 		<RankingTableRow
@@ -65,9 +79,7 @@ const Board = ({ players, classes }) => (
 			elo="ELO Score"
 			className={classes.headerRow}
 		/>
-		<RenderRows players={players.slice(0, 3)} classes={classes} />
-		<p className={classes.starDivider}>***</p>
-		<RenderRows players={players.slice(3)} classes={classes} />
+		<Rows players={players} classes={classes} />
 	</div>
 )
 

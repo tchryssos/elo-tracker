@@ -5,7 +5,6 @@ import axios from 'axios'
 import { MD_MIN_STRING } from 'constants/styles/breakpoints'
 import { API_URL, PLAYER_LIST } from 'constants/api'
 import { contentMaxWidth } from 'constants/styles/content'
-import { yellow } from 'constants/styles/colors'
 import { ohnoBlaze } from 'constants/styles/fonts'
 
 import RankingTable from 'components/RankingTable'
@@ -41,6 +40,7 @@ const styles = {
 		flexDirection: 'column',
 		width: '100%',
 		maxWidth: contentMaxWidth,
+		marginTop: 4,
 	},
 	[MD_MIN_STRING]: {
 		boardAndForm: {
