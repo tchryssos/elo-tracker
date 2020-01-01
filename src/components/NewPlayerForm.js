@@ -19,9 +19,13 @@ const styles = {
 		fontSize: 12,
 		padding: 8,
 		backgroundColor: yellow,
+		marginTop: 10,
 		'&:focus': {
 			outline: 'none',
 			backgroundColor: white,
+		},
+		'&::placeholder': {
+			color: black,
 		},
 	},
 }
@@ -54,7 +58,6 @@ const NewPlayerForm = ({ classes, getPlayers }) => {
 
 	return (
 		<Form title="Add a New Player" onSubmit={onSubmit}>
-			<p className={classes.formTitle} >Name</p>
 			<input
 				type="text"
 				name="name"

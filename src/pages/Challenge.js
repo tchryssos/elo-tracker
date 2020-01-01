@@ -21,7 +21,6 @@ const wrapperStyles = {
 const styles = {
 	boardPageContainer: {
 		...wrapperStyles,
-		height: '100%',
 	},
 	boardAndForm: {
 		...wrapperStyles,
@@ -46,7 +45,6 @@ const styles = {
 		boardAndForm: {
 			flexDirection: 'row',
 			justifyContent: 'space-evenly',
-			height: '100%',
 			alignItems: 'flex-start',
 		},
 	},
