@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom'
 import { createUseStyles } from 'react-jss'
-import Challenge from 'pages/Challenge'
+import Board from 'pages/Board'
 import { yellow } from 'constants/styles/colors'
 
 const useStyles = createUseStyles(() => {
@@ -47,7 +47,7 @@ const App = ({ location }) => {
 	return (
 		<>
 			<Switch>
-				<Route path="/" exact component={Challenge} />
+				<Route path="/" exact component={Board} />
 			</Switch>
 			{/* NavBar?? */}
 		</>
