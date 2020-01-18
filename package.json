@@ -13,7 +13,7 @@
     "lint": "eslint src --fix"
   },
   "engines": {
-    "node" : ">= 13.0.0"
+    "node": ">= 13.0.0"
   },
   "dependencies": {
     "@babel/core": "^7.2.0",
@@ -22,6 +22,7 @@
     "@babel/plugin-transform-runtime": "^7.7.6",
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.19.1",
     "babel-eslint": "^10.0.0",
     "babel-loader": "^8.0.4",
     "clsx": "^1.0.4",
