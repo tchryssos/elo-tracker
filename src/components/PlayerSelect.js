@@ -1,9 +1,9 @@
 import React from 'react'
-import injectSheet from 'react-jss'
+import { createUseStyles } from 'react-jss'
 
 import { black } from 'constants/styles/colors'
 
-const styles = {
+const useStyles = createUseStyles({
 	playerSelect: {
 		marginBottom: 15,
 		border: `2px solid ${black}`,
@@ -11,15 +11,17 @@ const styles = {
 		fontSize: 12,
 		padding: 8,
 	},
-}
+})
 
-const PlayerOption = ({ player, classes }) => (
+const PlayerOption = ({ player }) => (
 	<option value={player.id}>
 		{player.name}
 	</option>
 )
 
-const PlayerSelect = ({ players, fieldName, onChange, classes }) => {
+export default ({ players, fieldName, onChange }) => {
+	const classes = useStyles()
+
 	const sortedPlayers = players.sort((p1, p2) => (
 		p1.name.localeCompare(p2.name)
 	))
@@ -39,5 +41,3 @@ const PlayerSelect = ({ players, fieldName, onChange, classes }) => {
 		</select>
 	)
 }
-
-export default injectSheet(styles)(PlayerSelect)

@@ -1,12 +1,12 @@
 import React from 'react'
-import injectSheet from 'react-jss'
+import { createUseStyles } from 'react-jss'
 import clsx from 'clsx'
 import { black, yellow, white } from 'constants/styles/colors'
 import { robotoBold } from 'constants/styles/fonts'
 import { contentMaxWidth } from 'constants/styles/content'
 import RankingTableRow from 'components/RankingTableRow'
 
-const styles = {
+const useStyles = createUseStyles({
 	board: {
 		display: 'flex',
 		width: '100%',
@@ -36,7 +36,7 @@ const styles = {
 		lineHeight: 0.9,
 		fontSize: 50,
 	},
-}
+})
 
 const RenderRows = ({ players, classes }) => (
 	players.map(
@@ -69,16 +69,17 @@ const Rows = ({ players, classes }) => {
 	return null
 }
 
-const Board = ({ players, classes }) => (
-	<div className={classes.board}>
-		<RankingTableRow
-			rank="Rank"
-			name="Player"
-			elo="ELO Score"
-			className={classes.headerRow}
-		/>
-		<Rows players={players} classes={classes} />
-	</div>
-)
-
-export default injectSheet(styles)(Board)
+export default ({ players }) => {
+	const classes = useStyles()
+	return (
+		<div className={classes.board}>
+			<RankingTableRow
+				rank="Rank"
+				name="Player"
+				elo="ELO Score"
+				className={classes.headerRow}
+			/>
+			<Rows players={players} classes={classes} />
+		</div>
+	)
+}

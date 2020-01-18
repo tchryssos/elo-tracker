@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import injectSheet from 'react-jss'
+import { createUseStyles } from 'react-jss'
 import axios from 'axios'
 
 
@@ -9,14 +9,16 @@ import PlayerSelect from 'components/PlayerSelect'
 import Form from 'components/Form'
 import { robotoBold } from 'constants/styles/fonts'
 
-const styles = {
+const useStyles = createUseStyles({
 	formTitle: {
 		textTransform: 'uppercase',
 		...robotoBold,
 		marginBottom: 4,
 	},
-}
-const MatchForm = ({ classes, players, getPlayers }) => {
+})
+
+export default ({ players, getPlayers }) => {
+	const classes = useStyles()
 	const [formState, setFormState] = useState({
 		winner: undefined,
 		loser: undefined,
@@ -56,5 +58,3 @@ const MatchForm = ({ classes, players, getPlayers }) => {
 		</Form>
 	)
 }
-
-export default injectSheet(styles)(MatchForm)

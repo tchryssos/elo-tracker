@@ -1,10 +1,10 @@
 import React from 'react'
-import injectSheet from 'react-jss'
+import { createUseStyles } from 'react-jss'
 import clsx from 'clsx'
 
 import { MD_MIN_STRING } from 'constants/styles/breakpoints'
 
-const styles = {
+const useStyles = createUseStyles({
 	header: {
 		fontSize: 24,
 	},
@@ -13,12 +13,13 @@ const styles = {
 			fontSize: 36,
 		},
 	},
+})
+
+export default ({ children, className }) => {
+	const classes = useStyles()
+	return (
+		<h1 className={(clsx(classes.header, className))}>
+			{children}
+		</h1>
+	)
 }
-
-const H1 = ({ children, className, classes }) => (
-	<h1 className={(clsx(classes.header, className))}>
-		{children}
-	</h1>
-)
-
-export default injectSheet(styles)(H1)

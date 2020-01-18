@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import injectSheet from 'react-jss'
+import { createUseStyles } from 'react-jss'
 import axios from 'axios'
 
 import { API_URL, CREATE } from 'constants/api'
@@ -9,7 +9,7 @@ import Form from 'components/Form'
 import { robotoBold } from 'constants/styles/fonts'
 import { yellow, white, black } from 'constants/styles/colors'
 
-const styles = {
+const useStyles = createUseStyles({
 	formTitle: {
 		textTransform: 'uppercase',
 		...robotoBold,
@@ -28,14 +28,14 @@ const styles = {
 			color: black,
 		},
 	},
-}
+})
 
 const freshForm = {
 	name: '',
 }
 
-
-const NewPlayerForm = ({ classes, getPlayers }) => {
+export default ({ getPlayers }) => {
+	const classes = useStyles()
 	const [formState, setFormState] = useState(freshForm)
 
 	const onSubmit = async (e) => {
@@ -70,5 +70,3 @@ const NewPlayerForm = ({ classes, getPlayers }) => {
 		</Form>
 	)
 }
-
-export default injectSheet(styles)(NewPlayerForm)

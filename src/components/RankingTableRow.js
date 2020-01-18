@@ -1,11 +1,11 @@
 import React from 'react'
-import injectSheet from 'react-jss'
+import { createUseStyles } from 'react-jss'
 import clsx from 'clsx'
 
 import { black, yellow } from 'constants/styles/colors'
 import { robotoBold } from 'constants/styles/fonts'
 
-const styles = {
+const useStyles = createUseStyles({
 	row: {
 		display: 'flex',
 		marginBottom: 5,
@@ -34,28 +34,29 @@ const styles = {
 	podiumBorder: {
 		borderLeft: [[2, 'solid', yellow]],
 	},
+})
+
+export default ({ name, rank, elo, className }) => {
+	const classes = useStyles()
+	return (
+		<div className={clsx(classes.row, className)}>
+			<div className={classes.rankBox}>
+				{rank}
+			</div>
+			<div className={clsx(
+				{ [classes.podiumBorder]: rank <= 3 },
+				classes.playerNameContainer,
+			)}
+			>
+				{name}
+			</div>
+			<div className={clsx(
+				{ [classes.podiumBorder]: rank <= 3 },
+				classes.playerEloContainer,
+			)}
+			>
+				{elo}
+			</div>
+		</div>
+	)
 }
-
-const BoardRow = ({ name, rank, elo, className, classes }) => (
-	<div className={clsx(classes.row, className)}>
-		<div className={classes.rankBox}>
-			{rank}
-		</div>
-		<div className={clsx(
-			{ [classes.podiumBorder]: rank <= 3 },
-			classes.playerNameContainer,
-		)}
-		>
-			{name}
-		</div>
-		<div className={clsx(
-			{ [classes.podiumBorder]: rank <= 3 },
-			classes.playerEloContainer,
-		)}
-		>
-			{elo}
-		</div>
-	</div>
-)
-
-export default injectSheet(styles)(BoardRow)

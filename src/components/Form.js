@@ -1,12 +1,12 @@
 import React from 'react'
-import injectSheet from 'react-jss'
+import { createUseStyles } from 'react-jss'
 
 import H2 from 'components/H2'
 
 import { black, yellow } from 'constants/styles/colors'
 import { robotoBold } from 'constants/styles/fonts'
 
-const styles = {
+const useStyles = createUseStyles({
 	formWrapper: {
 		backgroundColor: yellow,
 		border: `2px solid ${black}`,
@@ -39,20 +39,21 @@ const styles = {
 			color: yellow,
 		},
 	},
-}
+})
 
-const Form = ({ onSubmit, children, title, classes }) => (
-	<div className={classes.formWrapper}>
-		<form onSubmit={onSubmit}>
-			<div className={classes.form}>
-				<div className={classes.titleWrapper}>
-					<H2>{title}</H2>
+export default ({ onSubmit, children, title }) => {
+	const classes = useStyles()
+	return (
+		<div className={classes.formWrapper}>
+			<form onSubmit={onSubmit}>
+				<div className={classes.form}>
+					<div className={classes.titleWrapper}>
+						<H2>{title}</H2>
+					</div>
+					{children}
+					<input type="submit" className={classes.submit} />
 				</div>
-				{children}
-				<input type="submit" className={classes.submit} />
-			</div>
-		</form>
-	</div>
-)
-
-export default injectSheet(styles)(Form)
+			</form>
+		</div>
+	)
+}
